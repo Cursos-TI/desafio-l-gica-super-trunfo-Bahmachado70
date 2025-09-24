@@ -1,7 +1,5 @@
 #include <stdio.h>
 
-#include <stdio.h>
-
 typedef struct {
     char estado[30];
     int codigo;
@@ -11,29 +9,6 @@ typedef struct {
     float pib;
     int pontos_turisticos;
 } Carta;
-
-void cadastrarCarta(Carta *carta) {
-    printf("Digite o nome da cidade: ");
-    scanf(" %[^\n]", carta->nome);
-
-    printf("Digite o estado: ");
-    scanf(" %[^\n]", carta->estado);
-
-    printf("Digite o código da carta: ");
-    scanf("%d", &carta->codigo);
-
-    printf("Digite a população: ");
-    scanf("%d", &carta->populacao);
-
-    printf("Digite a área (km²): ");
-    scanf("%f", &carta->area);
-
-    printf("Digite o PIB (em bilhões): ");
-    scanf("%f", &carta->pib);
-
-    printf("Digite o número de pontos turísticos: ");
-    scanf("%d", &carta->pontos_turisticos);
-}
 
 void exibirCarta(Carta carta) {
     printf("\n📍 Cidade: %s (%s)\n", carta.nome, carta.estado);
@@ -84,13 +59,13 @@ void compararCartas(Carta c1, Carta c2) {
 }
 
 int main() {
-    Carta carta1, carta2;
+    Carta carta1 = {
+        "RJ", 1, "Rio de Janeiro", 6700000, 1200.0, 400.0, 15
+    };
 
-    printf("Cadastro da primeira carta:\n");
-    cadastrarCarta(&carta1);
-
-    printf("\nCadastro da segunda carta:\n");
-    cadastrarCarta(&carta2);
+    Carta carta2 = {
+        "SP", 2, "São Paulo", 12300000, 1500.0, 700.0, 20
+    };
 
     printf("\n--- Cartas cadastradas ---\n");
     exibirCarta(carta1);
